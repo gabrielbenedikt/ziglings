@@ -16,7 +16,7 @@
 const print = @import("std").debug.print;
 
 // Let's define three structs: Duck, RubberDuck, and Duct. Notice
-// that Duck and RubberDuck both contain waddle() and quack()
+//that Duck and RubberDuck both contain waddle() and quack()
 // methods declared in their namespace (also known as "decls").
 
 const Duck = struct {
@@ -123,8 +123,8 @@ fn isADuck(possible_duck: anytype) bool {
     // Please make sure MyType has both waddle() and quack()
     // methods:
     const MyType = @TypeOf(possible_duck);
-    const walks_like_duck = ???;
-    const quacks_like_duck = ???;
+    const walks_like_duck = @hasDecl(MyType, "waddle");
+    const quacks_like_duck = @hasDecl(MyType, "quack");
 
     const is_duck = walks_like_duck and quacks_like_duck;
 
