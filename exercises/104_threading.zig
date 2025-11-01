@@ -119,14 +119,22 @@ pub fn main() !void {
 // This function is started with every thread that we set up.
 // In our example, we pass the number of the thread as a parameter.
 fn thread_function(num: usize) !void {
+<<<<<<< HEAD
     var io_instance: std.Io.Threaded = .init_single_threaded;
     const io = io_instance.io();
     try io.sleep(std.Io.Duration.fromSeconds(1 * @as(isize, @intCast(num))), .awake);
+=======
+    std.posix.nanosleep(1 * num, 0);
+>>>>>>> a78b60c (fixed more changes due to new I/O API)
     std.debug.print("thread {d}: {s}\n", .{ num, "started." });
 
     // This timer simulates the work of the thread.
     const work_time = 3 * ((5 - num % 3) - 2);
+<<<<<<< HEAD
     try io.sleep(std.Io.Duration.fromSeconds(@intCast(work_time)), .awake);
+=======
+    std.posix.nanosleep(work_time, 0);
+>>>>>>> a78b60c (fixed more changes due to new I/O API)
 
     std.debug.print("thread {d}: {s}\n", .{ num, "finished." });
 }
