@@ -584,7 +584,7 @@ const ZiglingStep = struct {
         else
             .off;
         if (self.step.result_error_bundle.errorMessageCount() > 0) {
-            self.step.result_error_bundle.renderToStderr(io, .{}, color) catch |err| {
+            self.step.result_error_bundle.renderToStdErr(io, .{}, color) catch |err| {
                 print("{}\n", .{err});
                 return;
             };
