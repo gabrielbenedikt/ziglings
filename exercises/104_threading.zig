@@ -136,3 +136,4 @@ fn thread_function(num: usize) !void {
 // with each other using semaphores.
 //
 // But that's a topic for another exercise.
+
